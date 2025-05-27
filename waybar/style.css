@@ -29,21 +29,19 @@ window#waybar {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* App Menu */
 #custom-appmenu {
-    /* background: linear-gradient(135deg, #464CE1, #7F00FF); */
-    color: black;
+    background: rgba(255, 255, 255, 0.15);
+    color: #242639;
     padding: 6px 12px;
     margin: 4px 6px;
-    border-radius: 10px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(70, 76, 225, 0.3);
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 #custom-appmenu:hover {
-    background: linear-gradient(135deg, #ece9ee, #09090a);
-    box-shadow: 0 4px 15px rgba(70, 76, 225, 0.5);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Workspaces */
@@ -52,6 +50,8 @@ window#waybar {
     border-radius: 10px;
     margin: 4px 8px;
     padding: 2px;
+    transition: all 0s ease;
+
 }
 
 #workspaces button {
@@ -63,18 +63,21 @@ window#waybar {
     transition: all 0.2s ease;
     box-shadow: none;
     text-shadow: none;
+        transition: all 0s ease;
 }
 
 #workspaces button:hover {
     background: rgba(255, 255, 255, 0.2);
     color: #464CE1;
     box-shadow: 0 2px 8px rgba(70, 76, 225, 0.2);
+        transition: all 0s ease;
 }
 
 #workspaces button.active {
     /* background: linear-gradient(135deg, #464CE1, #7F00FF); */
     color: white;
     box-shadow: 0 2px 12px rgba(70, 76, 225, 0.4);
+        transition: all 0s ease;
 }
 
 /* Taskbar */
@@ -215,16 +218,6 @@ window#waybar {
 
 #user:hover {
     background: rgba(255, 255, 255, 0.25);
-}
-
-/* Power buttons */
-.power-child {
-    background: rgba(255, 255, 255, 0.1);
-    color: #242639;
-    padding: 6px 10px;
-    margin: 4px 6px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
 }
 
 #custom-lock {
