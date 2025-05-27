@@ -1,0 +1,21 @@
+# Allow directories to be seen
+!*/
+
+# Ignore common unwanted files/folders
+*.log
+*.cache
+**/cache/
+**/Cache/
+**/logs/
+**/.DS_Store
+**/*.tmp
+**/*.temp
+
+# Explicitly ignore everything else at root level except what we want
+/*
+!.gitignore
+!hypr/
+!kitty/
+!waybar/
+!wofi/
+!README.md

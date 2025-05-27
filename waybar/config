@@ -1,0 +1,185 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "spacing": 4,
+    "modules-left": ["custom/appmenu", "clock", "wlr/taskbar"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["custom/notification", "custom/updates", "cpu", "memory", "disk", "network", "pulseaudio", "tray", "group/group-power"],
+    
+    "custom/appmenu": {
+        "format": "󰀻 Apps",
+        "tooltip-format": "Click to open application launcher",
+        "on-click": "wofi --show drun --allow-images --allow-markup --insensitive --prompt 'Search Apps'",
+        "tooltip": true
+    },
+    
+    "custom/notification": {
+        "format": "󰂚 {}",
+        "return-type": "json",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true,
+        "tooltip": true
+    },
+    
+    "custom/weather": {
+        "format": "󰖙 {}",
+        "interval": 3600,
+        "exec": "curl -s 'wttr.in/?format=%t' | head -1",
+        "on-click": "xdg-open 'https://wttr.in/'",
+        "tooltip": true,
+        "tooltip-format": "Click for detailed weather forecast"
+    },
+    
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "tooltip": true,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "active-first": false,
+        "icon-size": 18
+    },
+    
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "active": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "HDMI-A-1": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        },
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+    
+    "clock": {
+        "format": "󰥔 {:%H:%M}",
+        "format-alt": "󰃭 {:%A, %B %d, %Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#aecce6'><b>{}</b></span>",
+                "days": "<span color='#aecce6'><b>{}</b></span>",
+                "weekdays": "<span color='#df373a'><b>{}</b></span>",
+                "today": "<span color='#df373a'><b>{}</b></span>"
+            }
+        }
+    },
+    
+    "cpu": {
+        "format": "󰻠 {usage}%",
+        "tooltip": true,
+        "tooltip-format": "CPU Usage: {usage}%\nClick to open htop",
+        "on-click": "kitty -e htop"
+    },
+    
+    "memory": {
+        "interval": 5,
+        "format": "󰍛 {percentage}%",
+        "tooltip-format": "RAM: {used:0.1f}G/{total:0.1f}G ({percentage}%)",
+        "on-click": "kitty -e htop"
+    },
+    
+    "disk": {
+        "interval": 30,
+        "format": "󰋊 {percentage_used}%",
+        "tooltip-format": "Disk Usage: {used} / {total} ({percentage_used}%)\nPath: {path}",
+        "path": "/"
+    },
+    
+    "network": {
+        "tooltip": true,
+        "format-wifi": "󰖩 {signalStrength}%",
+        "format-ethernet": "󰈀 Connected",
+        "format-linked": "󰈂 {ifname} (No IP)",
+        "format-disconnected": "󰖪 Disconnected",
+        "tooltip-format-wifi": "󰖩 WiFi: {essid}\nSignal: {signalStrength}%\nFreq: {frequency}MHz\n󰇚 Down: {bandwidthDownBits}\n󰕒 Up: {bandwidthUpBits}",
+        "tooltip-format-ethernet": "󰈀 Ethernet: {ifname}\n󰇚 Down: {bandwidthDownBits}\n󰕒 Up: {bandwidthUpBits}",
+        "on-click": "nm-connection-editor",
+        "interval": 2
+    },
+    
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "󰂯 {volume}%",
+        "format-bluetooth-muted": "󰂲 Muted",
+        "format-muted": "󰖁 Muted",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰋎",
+            "headset": "󰋋",
+            "phone": "󰏲",
+            "portable": "󰦢",
+            "car": "󰄋",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+    
+    "custom/updates": {
+        "format": "󰚰 {}",
+        "interval": 3600,
+        "exec": "pacman -Qu | wc -l",
+        "exec-if": "exit 0",
+        "on-click": "kitty -e sudo pacman -Syu",
+        "tooltip": true,
+        "tooltip-format": "Available updates: {}\nClick to update system"
+    },
+    
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8,
+        "show-passive-items": true
+    },
+    
+    "group/group-power": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 150,
+            "children-class": "power-child",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "user",
+            "custom/reboot", 
+            "custom/shutdown"
+        ]
+    },
+    
+    "user": {
+        "format": "󰀉 {user}",
+        "height": 30,
+        "width": 30,
+        "icon": true
+    },
+    
+    "custom/reboot": {
+        "format": "󰜉",
+        "tooltip-format": "Reboot",
+        "on-click": "systemctl reboot"
+    },
+    
+    "custom/shutdown": {
+        "format": "󰐥",
+        "tooltip-format": "Shutdown",
+        "on-click": "systemctl poweroff"
+    }
+}

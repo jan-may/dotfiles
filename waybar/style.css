@@ -1,0 +1,284 @@
+* {
+    /*
+    Enhanced Color Palette:
+        --foreground     : #242639;
+        --background     : #AECCE6;
+        --surface        : #B8D4EA;
+        --accent         : #464CE1;
+        --warning        : #F39C12;
+        --critical       : #DF373A;
+        --success        : #27AE60;
+        --violet         : #7F00FF;
+        --hover          : #9DCBD7;
+    */
+    
+    border: none;
+    border-radius: 8px;
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    min-height: 0;
+    transition: all 0.3s ease;
+}
+
+window#waybar {
+    background: linear-gradient(135deg, #AECCE6 0%, #B8D4EA 100%);
+    border: 1px solid rgba(156, 203, 215, 0.3);
+    border-radius: 12px;
+    margin: 5px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* App Menu */
+#custom-appmenu {
+    /* background: linear-gradient(135deg, #464CE1, #7F00FF); */
+    color: black;
+    padding: 6px 12px;
+    margin: 4px 6px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(70, 76, 225, 0.3);
+}
+
+#custom-appmenu:hover {
+    background: linear-gradient(135deg, #ece9ee, #09090a);
+    box-shadow: 0 4px 15px rgba(70, 76, 225, 0.5);
+}
+
+/* Workspaces */
+#workspaces {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 4px 8px;
+    padding: 2px;
+}
+
+#workspaces button {
+    padding: 4px 8px;
+    margin: 2px;
+    background: transparent;
+    color: #242639;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #464CE1;
+    box-shadow: 0 2px 8px rgba(70, 76, 225, 0.2);
+}
+
+#workspaces button.active {
+    /* background: linear-gradient(135deg, #464CE1, #7F00FF); */
+    color: white;
+    box-shadow: 0 2px 12px rgba(70, 76, 225, 0.4);
+}
+
+/* Taskbar */
+#taskbar {
+    padding: 0 4px;
+}
+
+#taskbar button {
+    padding: 4px 6px;
+    margin: 2px;
+    background: transparent;
+    color: #242639;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#taskbar button:hover {
+    background: rgba(36, 38, 57, 0.1);
+    color: #464CE1;
+}
+
+#taskbar button.active {
+    background: rgba(36, 38, 57, 0.15);
+    color: #464CE1;
+    box-shadow: 0 1px 4px rgba(36, 38, 57, 0.2);
+}
+
+/* Clock */
+#clock {
+    background: rgba(255, 255, 255, 0.15);
+    color: #242639;
+    padding: 6px 12px;
+    margin: 4px 6px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#clock:hover {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* System Modules */
+#cpu, #memory, #disk, #network, #pulseaudio, #custom-updates, #custom-notification {
+    background: rgba(255, 255, 255, 0.1);
+    color: #242639;
+    padding: 6px 10px;
+    margin: 4px 2px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+#cpu:hover, #memory:hover, #disk:hover, #network:hover, 
+#pulseaudio:hover, #custom-updates:hover,
+#custom-notification:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-color: rgba(70, 76, 225, 0.3);
+}
+
+/* CPU specific styling */
+#cpu {
+    color: #242639;
+}
+
+/* Memory specific styling */
+#memory {
+    color: #242639;
+}
+
+/* Disk specific styling */
+#disk {
+    color: #242639;
+}
+
+/* Network specific styling */
+#network {
+    color: #242639;
+}
+
+#network.disconnected {
+    color: #DF373A;
+    background: rgba(223, 55, 58, 0.1);
+}
+
+/* Audio specific styling */
+#pulseaudio {
+    color: #242639;
+}
+
+#pulseaudio.muted {
+    color: #DF373A;
+    background: rgba(223, 55, 58, 0.1);
+}
+
+/* Updates indicator */
+#custom-updates {
+    color: #242639;
+}
+
+/* Notification Center */
+#custom-notification {
+    color: #242639;
+}
+
+/* Tray */
+#tray {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin: 4px 6px;
+    padding: 4px 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: rgba(223, 55, 58, 0.2);
+    border-radius: 6px;
+}
+
+/* Power Group */
+#user {
+    background: rgba(255, 255, 255, 0.15);
+    color: #242639;
+    padding: 6px 12px;
+    margin: 4px 8px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#user:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Power buttons */
+.power-child {
+    background: rgba(255, 255, 255, 0.1);
+    color: #242639;
+    padding: 6px 10px;
+    margin: 4px 6px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#custom-lock {
+    color: #F39C12;
+    margin-left: 6px;
+    padding: 12px 12px;
+}
+
+#custom-logout {
+    color: #7F00FF;
+    margin-left: 4px;
+    padding: 12px 12px;
+}
+
+#custom-reboot {
+    color: #464CE1;
+    margin-left: 4px;
+    padding: 12px 12px;
+}
+
+#custom-shutdown {
+    color: #DF373A;
+    padding: 12px 12px;
+    margin-left: 4px;
+}
+
+#custom-lock:hover, #custom-logout:hover, #custom-reboot:hover, #custom-shutdown:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Tooltip styling */
+tooltip {
+    background: rgba(36, 38, 57, 0.95);
+    color: #AECCE6;
+    border-radius: 8px;
+    border: 1px solid rgba(174, 204, 230, 0.3);
+}
+
+tooltip label {
+    color: #AECCE6;
+    font-weight: 500;
+}
+
+/* Animation for module loading */
+@keyframes module-load {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#custom-appmenu, #clock, #cpu, #memory, #disk, #network, #pulseaudio, #tray, #user, #custom-notification, #custom-updates {
+    animation: module-load 0.5s ease-out;
+}
